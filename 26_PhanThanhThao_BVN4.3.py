@@ -5,7 +5,7 @@ def mahoa_rsa(p, q, e, plaintext):
 
     public_key = (e, n)
 
-    ma = [(pow(ord(tu), e, n)) for tu in plaintext]
+    ma = [(pow((ord(tu.upper()) - ord('A')), e, n)) for tu in plaintext if tu.isalpha()]
 
     return ma, public_key
 
